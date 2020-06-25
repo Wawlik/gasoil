@@ -1043,7 +1043,7 @@
     webpack "^4.0.0"
     yorkie "^2.0.0"
 
-"@vue/cli-plugin-router@^4.4.5":
+"@vue/cli-plugin-router@^4.4.5", "@vue/cli-plugin-router@~4.4.0":
   version "4.4.5"
   resolved "https://registry.npm.taobao.org/@vue/cli-plugin-router/download/@vue/cli-plugin-router-4.4.5.tgz?cache=0&sync_timestamp=1592829617567&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Fcli-plugin-router%2Fdownload%2F%40vue%2Fcli-plugin-router-4.4.5.tgz#9c987161ee3986744ce6bab7a3a09b5ec86c2759"
   integrity sha1-nJhxYe45hnRM5rq3o6CbXshsJ1k=
@@ -7891,6 +7891,11 @@ vue-loader@^15.9.2:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-router@^3.2.0:
+  version "3.3.4"
+  resolved "https://registry.npm.taobao.org/vue-router/download/vue-router-3.3.4.tgz?cache=0&sync_timestamp=1592476888180&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-router%2Fdownload%2Fvue-router-3.3.4.tgz#4e38abc34a11c41b6c3d8244449a2e363ba6250b"
+  integrity sha1-Tjirw0oRxBtsPYJERJouNjumJQs=
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
