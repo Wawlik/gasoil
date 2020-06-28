@@ -27,6 +27,14 @@ export default new Vuex.Store({
 	mutations: {
 		set(state, { type, items }){
 			state[type] = items;
+		},
+		addToHistory(state, {titleH, type}){
+			let obj = {
+				title: titleH,
+				date: new Date(),
+				mode: type
+			};
+			state.history.push(obj);
 		}
 	},
 	actions: {
@@ -63,14 +71,7 @@ export default new Vuex.Store({
 			results.splice(query.index, 1);
 			commit('set', { type: 'results', items: results});
 			//history save
-			let toHist = {
-				title: query.title,
-				date: new Date(),
-				mode: 'add'
-			};
-			let history = this.state.history;
-			history.push(toHist);
-			commit('set', { type: 'history', items: history});
+			commit('addToHistory', { titleH: query.item.title, type: 'add'});
 		},
 		rmFromRight({commit}, query){
 			let saved = this.state.saved;
@@ -79,18 +80,10 @@ export default new Vuex.Store({
 			let results = this.state.results;
 			let obj = query.item;
 			// move to results
-			results.splice(0, 0, obj);
+			results.splice(0,0,obj);
 			commit('set', { type: 'results', items: results});
-
 			//history save
-			let toHist = {
-				title: query.title,
-				date: new Date(),
-				mode: 'rm'
-			};
-			let history = this.state.history;
-			history.push(toHist);
-			commit('set', { type: 'history', items: history});
+			commit('addToHistory', { titleH: query.item.title, type: 'rm'});
 		}
 	}
 })
