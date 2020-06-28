@@ -3,9 +3,10 @@
 		<div v-if="history && history.length">
 			<div class="History__item" v-for="(item, index) in history" :key="'result-' + index">
 				<div class="History__info">
-					<a :href="item.url" class="History__title">title: {{item.title}}</a>
-					<div :class="'History__mode ' + (item.mode === 'rm' ? 'History__mode__rm':'History__mode__add')">mode: {{item.mode}}</div>
-					<div class="History__snippet">date: {{item.date}}</div>
+					<a :href="item.url" class="History__title">Название: {{item.title}}</a>
+					<div :class="'History__mode ' + (item.mode === 'rm' ? 'History__mode__rm':'History__mode__add')">
+						{{(item.mode === 'rm' ? 'Удаление' : 'Добавление')}}</div>
+					<div class="History__snippet">Дата: {{item.date}}</div>
 				</div>
 			</div>
 		</div>
@@ -20,8 +21,6 @@
 		data() {
 			return {
 			}
-		},
-		methods:{
 		},
 		computed: {
 			history() {
