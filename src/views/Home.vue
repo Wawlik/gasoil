@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-		<main-list msg="Welcome to Your Vue.js App"/>
+		<!-- <main-list msg="Welcome to Your Vue.js App"/> -->
 		<search/>
 		<div class="tables">
 			<result/>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import mainList from '@/components/mainList.vue'
+// import mainList from '@/components/mainList.vue'
 import Search from '@/components/Search.vue'
 import Result from '@/components/Result.vue'
 import tableSaved from '@/components/tableSaved.vue'
@@ -18,7 +18,7 @@ import tableSaved from '@/components/tableSaved.vue'
 export default {
 	name: 'Home',
 	components: {
-		mainList,
+		// mainList,
 		Search,
 		Result,
 		tableSaved

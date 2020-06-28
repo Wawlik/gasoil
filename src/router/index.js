@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import History from '../components/History.vue'
 
 Vue.use(VueRouter)
 
@@ -13,7 +14,7 @@ Vue.use(VueRouter)
   {
     path: '/history',
     name: 'History',
-    component: history
+    component: History
   }
 ]
 

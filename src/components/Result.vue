@@ -9,6 +9,7 @@
 			<div class="Item__add" @click="addToRight(item, index)">
 				<span>+</span>
 			</div>
+			<!-- <span>{{item.wordcount}}</span> -->
 		</div>
 	</div>
 </template>

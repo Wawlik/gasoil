@@ -7,18 +7,21 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	state: {
 		results: [],
-		saved: []
+		saved: [],
+		history: []
 	},
 	getters: {
 		results(state) {
 			return state.results.map(item => {
 				item.url = 'https://ru.wikipedia.org/wiki/' + item.title;
-				console.log({item});
 				return item;
 			})
 		},
 		saved(state) {
 			return state.saved;
+		},
+		history(state) {
+			return state.history;
 		}
 	},
 	mutations: {
@@ -37,7 +40,7 @@ export default new Vuex.Store({
 					item.id = index;
 					return item;
 				}).sort((one, two) =>{
-					// sort by wordcount instead of name or items.name
+					// sort by wordcount
 					if(one.wordcount > two.wordcount){
 						return 1;
 					}
@@ -51,7 +54,6 @@ export default new Vuex.Store({
 		},
 		addToRight({commit}, query){
 			let saved = this.state.saved;
-			console.log({saved});
 			commit('set', { type: 'saved', items: saved});
 			let obj = query.item;
 			obj.id = query.index;
@@ -60,6 +62,15 @@ export default new Vuex.Store({
 			let results = this.state.results;
 			results.splice(query.index, 1);
 			commit('set', { type: 'results', items: results});
+			//history save
+			let toHist = {
+				title: query.title,
+				date: new Date(),
+				mode: 'add'
+			};
+			let history = this.state.history;
+			history.push(toHist);
+			commit('set', { type: 'history', items: history});
 		},
 		rmFromRight({commit}, query){
 			let saved = this.state.saved;
@@ -67,9 +78,19 @@ export default new Vuex.Store({
 			commit('set', { type: 'saved', items: saved});
 			let results = this.state.results;
 			let obj = query.item;
-			// add to results back
-			results.splice(obj.id, 0, obj);
+			// move to results
+			results.splice(0, 0, obj);
 			commit('set', { type: 'results', items: results});
+
+			//history save
+			let toHist = {
+				title: query.title,
+				date: new Date(),
+				mode: 'rm'
+			};
+			let history = this.state.history;
+			history.push(toHist);
+			commit('set', { type: 'history', items: history});
 		}
 	}
 })

@@ -2,7 +2,9 @@
 	<div id="app">
 		<div id="nav">
 			<router-link to="/">Главная</router-link> |
-			<router-link to="/history">История</router-link>
+			<router-link to="/history">История</router-link> |
+			<router-link to="/history?mode=add">История добавлений</router-link> |
+			<router-link to="/history?mode=rm">История удалений</router-link>
 		</div>
 		<router-view/>
 	</div>
