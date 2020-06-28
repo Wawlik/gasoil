@@ -5,13 +5,8 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import history from '@/components/history.vue'
 
 export default {
-  name: 'history',
-  components: {
-    history
-  }
+  name: 'history'
 }
 </script>
